@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Darius' Website</title>
+	<title>Darius Pelonia</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+.myTab {/*display:none;*/}
+	</style>
 <script type="text/javascript">
 	function openProfile() {
 		location.href = "#profile"
 	}
+	function myFunction(id,icon) {
+		document.getElementById(id).classList.toggle("w3-show");
+		document.getElementById(icon).classList.toggle("fa-caret-up");
+	}
 </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
-<body onload="openProfile()">
-	<nav class="w3-sidenav w3-black w3-xxlarge w3-responsive" style="width:25%">
-		<header class="w3-container"><h4>Darius Pelonia</h4></header>
-		<a href="#profile">Profile</a>
-		<a href="#experience">Experience</a>
-		<a href="#contact">Contact</a>
-	</nav>
-	<div class="w3-tab" style="margin-left:25%">
-		<header class="w3-container w3-black">
-			&nbsp;
-		</header>
-		<div id="profile" class="w3-container">
+<body> <!--onload="openProfile()">-->
+	<ul class="w3-navbar w3-accordion w3-black w3-large w3-responsive">
+		<button onclick="myFunction('menu','header-icon')" class="w3-btn-block w3-left-align"><h1>Darius Pelonia <i id="header-icon" class="fa fa-caret-down"></i></h1></button>
+		<div id="menu" class="w3-accordion-content w3-animate-zoom">
+			<li><a href="#profile" class="tablink" onclick="openTab(event, 'profile')">Profile</a></li>
+			<li><a href="#experience" class="tablink" onclick="openTab(event, 'experience')">Experience</a></li>
+			<li><a href="#contact" class="tablink" onclick="openTab(event, 'contact')">Contact</a></li>
+		</div>
+	</ul>
+	<div class="w3-tab"	>
+		<div id="profile" class="w3-container myTab">
 			<h4>Profile</h4>
 			<ul class="w3-ul w3-border w3-card-4">
 				<li class="w3-black">Personal Details</li>
@@ -48,7 +54,7 @@
 			</ul>
 			<!-- END SKILLS -->
 		</div>
-		<div id="experience" class="w3-container">
+		<div id="experience" class="w3-container myTab">
 			<h4>Professional Experience</h4>
 			<!-- START CoreSys Solutions, Inc. -->
 			<ul class="w3-ul w3-border w3-card-8">
@@ -88,13 +94,32 @@
 			</ul><br/>
 			<!-- END 98labs, Inc. -->
 		</div>
-		<div id="contact" class="w3-container" align="center">
+		<div id="contact" class="w3-container myTab" align="center">
 				<a href="https://www.facebook.com/darpell"><i class="fa fa-facebook-official fa-5x"></i></a>
 				<a href="https://twitter.com/darpell"><i class="fa fa-twitter-square fa-5x"></i></a>
 				<a href="https://ph.linkedin.com/pub/darius-pelonia/33/73a/534"><i class="fa fa-linkedin-square fa-5x"></i></a>
 				<a href="mailto:pelonia.darius@gmail.com"><i class="fa fa-envelope fa-5x"></i></a>
 		</div>
+		<div class="w3-row">
+			<div class="w3-navbar w3-black w3-large w3-col l12" align="center">
+				<a href="#" align="center">Back to Top</a>
+			</div>
+		</div>
 	</div>
-
+	<script>
+		function openTab(evt, tabName) {
+		  var i, x, tablinks;
+		  x = document.getElementsByClassName("myTab");
+		  for (i = 0; i < x.length; i++) {
+		     x[i].style.display = "none";
+		  }
+		  /*tablinks = document.getElementsByClassName("tablink");
+		  for (i = 0; i < x.length; i++) {
+		     tablinks[i].classList.remove("w3-red");
+		  }
+		  document.getElementById(tabName).style.display = "block";
+		  evt.currentTarget.classList.add("w3-red");
+		}*/
+	</script>
 </body>
 </html>
